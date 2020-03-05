@@ -25,4 +25,9 @@ class Search extends Component
             'results'   => $results,
         ]);
     }
+
+    public function paginationView()
+    {
+        return 'vendor.pagination.simple-default';
+    }
 }
