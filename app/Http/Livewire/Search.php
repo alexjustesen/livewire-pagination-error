@@ -13,6 +13,22 @@ class Search extends Component
 
     public $search = '';
 
+    public function updating($name, $value)
+    {
+        //list of Property changes in which that
+        //page number needs to be set to
+        //first page
+
+        $changePagintionToOne = [
+            'search',
+        ];
+
+            if(in_array($name,$changePagintionToOne)):
+                $this->gotoPage(1);
+            endif;
+        return;
+    }
+
     public function render()
     {
         $results = User::query()
@@ -28,6 +44,6 @@ class Search extends Component
 
     public function paginationView()
     {
-        return 'vendor.pagination.simple-default';
+        return 'vendor.pagination.simple-livewire';
     }
 }
